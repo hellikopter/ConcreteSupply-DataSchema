@@ -1,0 +1,27 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29201.188
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "ConcreteSupply.SqlSchema", "ConcreteSupply.SqlSchema.sqlproj", "{67B7A515-CD20-41F8-9DA8-0FF2C4955205}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{67B7A515-CD20-41F8-9DA8-0FF2C4955205}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{67B7A515-CD20-41F8-9DA8-0FF2C4955205}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{67B7A515-CD20-41F8-9DA8-0FF2C4955205}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{67B7A515-CD20-41F8-9DA8-0FF2C4955205}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{67B7A515-CD20-41F8-9DA8-0FF2C4955205}.Release|Any CPU.Build.0 = Release|Any CPU
+		{67B7A515-CD20-41F8-9DA8-0FF2C4955205}.Release|Any CPU.Deploy.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {D93B6F89-92FC-4937-A7D3-08EF2C4F73B9}
+	EndGlobalSection
+EndGlobal

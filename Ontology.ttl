@@ -1,0 +1,448 @@
+@prefix :<http://example.com/schema/>.
+@prefix this:<http://example.com/>.
+@prefix rdfs:<http://www.w3.org/2000/01/rdf-schema#>.
+@prefix owl:<http://www.w3.org/2002/07/owl#>.
+@prefix xsd:<http://www.w3.org/2001/XMLSchema#>.
+
+this:schema a owl:Ontology;
+	rdfs:isDefinedBy this:schema;
+	rdfs:label "Concrete supply ontology".
+
+
+:Vehicle a owl:Class;
+	rdfs:isDefinedBy this:schema;
+	rdfs:label "Vehicle".
+
+:ConcreteMixer a owl:Class;
+	rdfs:subClassOf :Vehicle;
+	rdfs:isDefinedBy this:schema;
+	rdfs:label "Concrete mixer".
+
+:ConcretePump a owl:Class;
+	rdfs:subClassOf :Vehicle;
+	rdfs:isDefinedBy this:schema;
+	rdfs:label "Concrete pump".
+	
+:DumpTruck a owl:Class;
+	rdfs:subClassOf :Vehicle;
+	rdfs:isDefinedBy this:schema;
+	rdfs:label "Dump truck".
+	
+:VehicleJobCard a owl:Class;
+	rdfs:isDefinedBy this:schema;
+	rdfs:label "Vehicle job card".
+
+:Delivery a owl:Class;
+	rdfs:isDefinedBy this:schema;
+	rdfs:label "Delivery".
+
+:ConcreteMixerDelivery a owl:Class;
+	rdfs:subClassOf :Delivery;
+	rdfs:isDefinedBy this:schema;
+	rdfs:label "Concrete mixer delivery".
+
+:ConcretePumpDelivery a owl:Class;
+	rdfs:subClassOf :Delivery;
+	rdfs:isDefinedBy this:schema;
+	rdfs:label "Concrete pump delivery".
+
+:DumpTruckDelivery a owl:Class;
+	rdfs:subClassOf :Delivery;
+	rdfs:isDefinedBy this:schema;
+	rdfs:label "Dump truck delivery".
+	
+:Operator a owl:Class;
+	rdfs:isDefinedBy this:schema;
+	rdfs:label "Operator".
+
+:Driver a owl:Class;
+	rdfs:subClassOf :Operator;
+	rdfs:isDefinedBy this:schema;
+	rdfs:label "Driver".
+
+:ContactPoint a owl:Class;
+	rdfs:isDefinedBy this:schema;
+	rdfs:label "Contact point".
+
+:PostalAddress a owl:Class;
+	rdfs:isDefinedBy this:schema;
+	rdfs:label "Postal address".
+
+:DriverWageRate a owl:Class;
+	rdfs:isDefinedBy this:schema;
+	rdfs:label "Driver wage rate".
+	
+:DriverWageCapacityRate a owl:Class;
+	rdfs:subClassOf :DriverWageRate;
+	rdfs:isDefinedBy this:schema;
+	rdfs:label "Driver wage rate per volume".
+
+:DriverWageDayRate a owl:Class;
+	rdfs:subClassOf :DriverWageRate;
+	rdfs:isDefinedBy this:schema;
+	rdfs:label "Driver daily wage rate".
+
+:DriverWageDeliveryRate a owl:Class;
+	rdfs:subClassOf :DriverWageRate;
+	rdfs:isDefinedBy this:schema;
+	rdfs:label "Driver wage rate per delivery".
+
+:DriverWagePayloadRate a owl:Class;
+	rdfs:subClassOf :DriverWageRate;
+	rdfs:isDefinedBy this:schema;
+	rdfs:label "Driver wage rate per load".
+
+:Customer a owl:Class;
+	rdfs:isDefinedBy this:schema;
+	rdfs:label "Customer".
+	
+:customerHasContactPoint a owl:ObjectProperty, owl:InverseFunctionalProperty;
+	rdfs:domain :Customer;
+	rdfs:range :ContactPoint;
+	rdfs:isDefinedBy this:schema;
+	rdfs:label "Customer has contact point".
+	
+:contactPointHasCustomer a owl:ObjectProperty, owl:FunctionalProperty;
+	owl:inverseOf :customerHasContactPoint;
+	rdfs:domain :ContactPoint;
+	rdfs:range :Customer;
+	rdfs:isDefinedBy this:schema;
+	rdfs:label "Contact point has customer".
+
+:deliveryHasPostalAddress a owl:ObjectProperty;
+	rdfs:domain :Delivery;
+	rdfs:range :PostalAddress;
+	rdfs:isDefinedBy this:schema;
+	rdfs:label "Delivery has postal address".
+
+:postalAddressHasDelivery a owl:ObjectProperty;
+	owl:inverseOf :deliveryHasPostalAddress;
+	rdfs:domain :PostalAddress;
+	rdfs:range :Delivery;
+	rdfs:isDefinedBy this:schema;
+	rdfs:label "Postal address has delivery".
+
+:deliveryHasVehicle a owl:ObjectProperty;
+	rdfs:domain :Delivery;
+	rdfs:range :Vehicle;
+	rdfs:isDefinedBy this:schema;
+	rdfs:label "Delivery has vehicle".
+
+:vehicleHasDelivery a owl:ObjectProperty;
+	owl:inverseOf :deliveryHasVehicle;
+	rdfs:domain :Delivery;
+	rdfs:range :Vehicle;
+	rdfs:isDefinedBy this:schema;
+	rdfs:label "Vehicle has delivery".
+
+:deliveryHasDriver a owl:ObjectProperty;
+	rdfs:domain :Delivery;
+	rdfs:range :Driver;
+	rdfs:isDefinedBy this:schema;
+	rdfs:label "Delivery has driver".
+
+:driverHasDelivery a owl:ObjectProperty;
+	owl:inverseOf :deliveryHasDriver;
+	rdfs:domain :Driver;
+	rdfs:range :Delivery;
+	rdfs:isDefinedBy this:schema;
+	rdfs:label "Driver has delivery".
+
+:deliveryHasImmediatelyPreviousDelivery a owl:ObjectProperty, owl:FunctionalProperty, owl:InverseFunctionalProperty;
+	rdfs:domain :Delivery;
+	rdfs:range :Delivery;
+	rdfs:isDefinedBy this:schema;
+	rdfs:label "Delivery has immediately previous delivery".
+
+:deliveryHasImmediatelyFollowingDelivery a owl:ObjectProperty, owl:FunctionalProperty, owl:InverseFunctionalProperty;
+	owl:inverseOf :deliveryHasImmediatelyPreviousDelivery;
+	rdfs:domain :Delivery;
+	rdfs:range :Delivery;
+	rdfs:isDefinedBy this:schema;
+	rdfs:label "Delivery has immediately following delivery".
+
+:driverWageRateHasDriver a owl:ObjectProperty, owl:InverseFunctionalProperty;
+	rdfs:domain :DriverWageRate;
+	rdfs:range :Driver;
+	rdfs:isDefinedBy this:schema;
+	rdfs:label "Driver wage rate has driver".
+
+:driverHasDriverWageRate a owl:ObjectProperty;
+	owl:inverseOf :driverWageRateHasDriver;
+	rdfs:domain :Driver;
+	rdfs:range :DriverWageRate;
+	rdfs:isDefinedBy this:schema;
+	rdfs:label "Driver has driver wage rate".
+
+:dumpTruckDeliveryHasLoadingPostalAddress a owl:ObjectProperty;
+	rdfs:domain :DumpTruckDelivery;
+	rdfs:range :PostalAddress;
+	rdfs:isDefinedBy this:schema;
+	rdfs:label "Dump truck delivery has loading postal address".
+	
+:loadingPostalAddressHasDumpTruckDelivery a owl:ObjectProperty;
+	owl:inverseOf :dumpTruckDeliveryHasLoadingPostalAddress;
+	rdfs:domain :PostalAddress;
+	rdfs:range :DumpTruckDelivery;
+	rdfs:isDefinedBy this:schema;
+	rdfs:label "Loading postal address has dump truck delivery".
+
+:postalAddressHasContactPoint a owl:ObjectProperty, owl:FunctionalProperty;
+	rdfs:domain :PostalAddress;
+	rdfs:range :ContactPoint;
+	rdfs:isDefinedBy this:schema;
+	rdfs:label "Postal address has contact point".
+
+:contactPointHasPostalAddress a owl:ObjectProperty;
+	owl:inverseOf :postalAddressHasContactPoint;
+	rdfs:domain :ContactPoint;
+	rdfs:range :PostalAddress;
+	rdfs:isDefinedBy this:schema;
+	rdfs:label "Contact point has postal address".
+
+:vehicleJobCardHasVehicle a owl:ObjectProperty;
+	rdfs:domain :VehicleJobCard;
+	rdfs:range :Vehicle;
+	rdfs:isDefinedBy this:schema;
+	rdfs:label "Vehicle job card has vehicle".
+
+:vehicleHasVehicleJobCard a owl:ObjectProperty, owl:InverseFunctionalProperty;
+	owl:inverseOf :vehicleJobCardHasVehicle;
+	rdfs:domain :Vehicle;
+	rdfs:range :VehicleJobCard;
+	rdfs:isDefinedBy this:schema;
+	rdfs:label "Vehicle has vehicle job card".
+
+:concreteMixerCapacity a owl:DatatypeProperty;
+	rdfs:domain :ConcreteMixer;
+	rdfs:range xsd:decimal;
+	rdfs:isDefinedBy this:schema;
+	rdfs:label "Concrete mixer capacity".
+
+:concreteMixerDeliveryStart a owl:DatatypeProperty;
+	rdfs:domain :ConcreteMixerDelivery;
+	rdfs:range xsd:dateTime;
+	rdfs:isDefinedBy this:schema;
+	rdfs:label "Concrete mixer delivery start".
+	
+:concreteMixerDeliveryEnd a owl:DatatypeProperty;
+	rdfs:domain :ConcreteMixerDelivery;
+	rdfs:range xsd:dateTime;
+	rdfs:isDefinedBy this:schema;
+	rdfs:label "Concrete mixer delivery end".
+	
+:concreteMixerDeliveryCapacity a owl:DatatypeProperty;
+	rdfs:domain :ConcreteMixerDelivery;
+	rdfs:range xsd:decimal;
+	rdfs:isDefinedBy this:schema;
+	rdfs:label "Concrete mixer delivery capacity".
+	
+:concretePumpVerticalReach a owl:DatatypeProperty;
+	rdfs:domain :ConcretePump;
+	rdfs:range xsd:decimal;
+	rdfs:isDefinedBy this:schema;
+	rdfs:label "Concrete pump vertical reach".
+
+:concretePumpHorizontalReach a owl:DatatypeProperty;
+	rdfs:domain :ConcretePump;
+	rdfs:range xsd:decimal;
+	rdfs:isDefinedBy this:schema;
+	rdfs:label "Concrete pump horizontal reach".
+
+:concretePumpDeliveryWorkingTime a owl:DatatypeProperty;
+	rdfs:domain :ConcretePumpDelivery;
+	rdfs:range xsd:integer;
+	rdfs:isDefinedBy this:schema;
+	rdfs:label "Concrete pump delivery working time".
+
+:concretePumpDeliveryRestTime a owl:DatatypeProperty;
+	rdfs:domain :ConcretePumpDelivery;
+	rdfs:range xsd:integer;
+	rdfs:isDefinedBy this:schema;
+	rdfs:label "Concrete pump delivery rest time".
+
+:concretePumpDeliveryHoseLength a owl:DatatypeProperty;
+	rdfs:domain :ConcretePumpDelivery;
+	rdfs:range xsd:integer;
+	rdfs:isDefinedBy this:schema;
+	rdfs:label "Concrete pump delivery hose length".
+
+:contactPointLabel a owl:DatatypeProperty;
+	rdfs:domain :ContactPoint;
+	rdfs:range xsd:string;
+	rdfs:isDefinedBy this:schema;
+	rdfs:label "Contact point label".
+
+:contactPointEmail a owl:DatatypeProperty;
+	rdfs:domain :ContactPoint;
+	rdfs:range xsd:string;
+	rdfs:isDefinedBy this:schema;
+	rdfs:label "Contact point e-mail".
+	
+:contactPointPhoneNumber a owl:DatatypeProperty;
+	rdfs:domain :ContactPoint;
+	rdfs:range xsd:string;
+	rdfs:isDefinedBy this:schema;
+	rdfs:label "Contact point phone number".
+
+:contactPointMobilePhoneNumber a owl:DatatypeProperty;
+	rdfs:domain :ContactPoint;
+	rdfs:range xsd:string;
+	rdfs:isDefinedBy this:schema;
+	rdfs:label "Contact point mobile phone number".
+
+:customerLabel a owl:DatatypeProperty;
+	rdfs:domain :Customer;
+	rdfs:range xsd:string;
+	rdfs:isDefinedBy this:schema;
+	rdfs:label "Customer label".
+
+:deliveryReference a owl:DatatypeProperty, owl:InverseFunctionalProperty;
+	rdfs:domain :Delivery;
+	rdfs:range xsd:string;
+	rdfs:isDefinedBy this:schema;
+	rdfs:label "Delivery reference".
+
+:deliveryDistance a owl:DatatypeProperty;
+	rdfs:domain :Delivery;
+	rdfs:range xsd:decimal;
+	rdfs:isDefinedBy this:schema;
+	rdfs:label "Delivery distance".
+
+:driverGivenName a owl:DatatypeProperty;
+	rdfs:domain :Driver;
+	rdfs:range xsd:string;
+	rdfs:isDefinedBy this:schema;
+	rdfs:label "Driver given name".
+
+:driverFamilyName a owl:DatatypeProperty;
+	rdfs:domain :Driver;
+	rdfs:range xsd:string;
+	rdfs:isDefinedBy this:schema;
+	rdfs:label "Driver family name".
+	
+:driverWageCapacityRate a owl:DatatypeProperty;
+	rdfs:domain :DriverWageCapacityRate;
+	rdfs:range xsd:decimal;
+	rdfs:isDefinedBy this:schema;
+	rdfs:label "Driver wage capacity rate".
+	
+:driverWageDayRate a owl:DatatypeProperty;
+	rdfs:domain :DriverWageDayRate;
+	rdfs:range xsd:decimal;
+	rdfs:isDefinedBy this:schema;
+	rdfs:label "Driver wage daily rate".
+	
+:driverWageDeliveryRate a owl:DatatypeProperty;
+	rdfs:domain :DriverWageDeliveryRate;
+	rdfs:range xsd:decimal;
+	rdfs:isDefinedBy this:schema;
+	rdfs:label "Driver wage delivery rate".
+	
+:driverWagePayloadRate a owl:DatatypeProperty;
+	rdfs:domain :DriverWagePayloadRate;
+	rdfs:range xsd:decimal;
+	rdfs:isDefinedBy this:schema;
+	rdfs:label "Driver wage payload rate".
+	
+:dumpTruckDeliveryPayload a owl:DatatypeProperty;
+	rdfs:domain :DumpTruckDelivery;
+	rdfs:range xsd:decimal;
+	rdfs:isDefinedBy this:schema;
+	rdfs:label "Driver truck delivery payload".
+
+:dumpTruckPayload a owl:DatatypeProperty;
+	rdfs:domain :DumpTruck;
+	rdfs:range xsd:decimal;
+	rdfs:isDefinedBy this:schema;
+	rdfs:label "Driver truck payload".
+
+:operatorUserName a owl:DatatypeProperty;
+	rdfs:domain :Operator;
+	rdfs:range xsd:string;
+	rdfs:isDefinedBy this:schema;
+	rdfs:label "Operator username".
+
+:operatorPassword a owl:DatatypeProperty;
+	rdfs:domain :Operator;
+	rdfs:range xsd:string;
+	rdfs:isDefinedBy this:schema;
+	rdfs:label "Operator password".
+
+:postalAddressLine1 a owl:DatatypeProperty;
+	rdfs:domain :PostalAddress;
+	rdfs:range xsd:string;
+	rdfs:isDefinedBy this:schema;
+	rdfs:label "Postal address line 1".
+
+:postalAddressLine2 a owl:DatatypeProperty;
+	rdfs:domain :PostalAddress;
+	rdfs:range xsd:string;
+	rdfs:isDefinedBy this:schema;
+	rdfs:label "Postal address line 2".
+
+:postalAddressLine3 a owl:DatatypeProperty;
+	rdfs:domain :PostalAddress;
+	rdfs:range xsd:string;
+	rdfs:isDefinedBy this:schema;
+	rdfs:label "Postal address line 3".
+
+:postalAddressLine4 a owl:DatatypeProperty;
+	rdfs:domain :PostalAddress;
+	rdfs:range xsd:string;
+	rdfs:isDefinedBy this:schema;
+	rdfs:label "Postal address line 4".
+
+:postalAddressLine5 a owl:DatatypeProperty;
+	rdfs:domain :PostalAddress;
+	rdfs:range xsd:string;
+	rdfs:isDefinedBy this:schema;
+	rdfs:label "Postal address line 5".
+
+:postalAddressPostCode a owl:DatatypeProperty;
+	rdfs:domain :PostalAddress;
+	rdfs:range xsd:string;
+	rdfs:isDefinedBy this:schema;
+	rdfs:label "Postal address postcode".
+
+:vehicleNumberPlace a owl:DatatypeProperty, owl:InverseFunctionalProperty;
+	rdfs:domain :Vehicle;
+	rdfs:range xsd:string;
+	rdfs:isDefinedBy this:schema;
+	rdfs:label "Vehicle number plate".
+	
+:vehicleJobCardStart a owl:DatatypeProperty;
+	rdfs:domain :VehicleJobCard;
+	rdfs:range xsd:dateTime;
+	rdfs:isDefinedBy this:schema;
+	rdfs:label "Vehicle job card start".
+
+:vehicleJobCardEnd a owl:DatatypeProperty;
+	rdfs:domain :VehicleJobCard;
+	rdfs:range xsd:dateTime;
+	rdfs:isDefinedBy this:schema;
+	rdfs:label "Vehicle job card end".
+
+:vehicleJobCardOdometerStart a owl:DatatypeProperty;
+	rdfs:domain :VehicleJobCard;
+	rdfs:range xsd:integer;
+	rdfs:isDefinedBy this:schema;
+	rdfs:label "Vehicle job card odometer start".
+
+:vehicleJobCardOdometerEnd a owl:DatatypeProperty;
+	rdfs:domain :VehicleJobCard;
+	rdfs:range xsd:integer;
+	rdfs:isDefinedBy this:schema;
+	rdfs:label "Vehicle job card odometer end".
+
+:vehicleJobCardFuelLevelStart a owl:DatatypeProperty;
+	rdfs:domain :VehicleJobCard;
+	rdfs:range xsd:integer;
+	rdfs:isDefinedBy this:schema;
+	rdfs:label "Vehicle job card fuel level start".
+
+:vehicleJobCardFuelLevelEnd a owl:DatatypeProperty;
+	rdfs:domain :VehicleJobCard;
+	rdfs:range xsd:integer;
+	rdfs:isDefinedBy this:schema;
+	rdfs:label "Vehicle job card fuel level end".
