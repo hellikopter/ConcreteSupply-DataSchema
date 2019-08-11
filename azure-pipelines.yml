@@ -1,0 +1,11 @@
+trigger:
+- master
+
+pool:
+  vmImage: 'ubuntu-latest'
+
+steps:
+- script: git checkout master
+  displayName: 'Checkout'
+- script: git push https://$(GitHubAccessToken)@github.com/hellikopter/ConcreteSupply-DataSchema.git
+  displayName: 'Push to GitHub'
