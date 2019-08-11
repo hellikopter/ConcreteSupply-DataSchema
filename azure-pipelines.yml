@@ -5,5 +5,5 @@ pool:
   vmImage: 'ubuntu-latest'
 
 steps:
-- script: git push https://$(GithubAccessToken)@github.com/hellikopter/ConcreteSupply-DataSchema.git
+- script: git push https://$(GitHubAccessToken)@github.com/hellikopter/ConcreteSupply-DataSchema.git
   displayName: 'Push to GitHub'
