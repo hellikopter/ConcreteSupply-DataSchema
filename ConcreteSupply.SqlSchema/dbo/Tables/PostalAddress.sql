@@ -7,7 +7,10 @@
     [AddressLine4]   NVARCHAR (64) NULL,
     [AddressLine5]   NVARCHAR (64) NULL,
     [PostCode]       NVARCHAR (64) NULL,
+    [RdfLocalId]     NVARCHAR (36) NOT NULL,
     CONSTRAINT [PK_PostalAddress] PRIMARY KEY CLUSTERED ([Id] ASC),
     CONSTRAINT [FK_PostalAddress_ContactPoint] FOREIGN KEY ([ContactPointId]) REFERENCES [dbo].[ContactPoint] ([Id])
 );
+
+
 

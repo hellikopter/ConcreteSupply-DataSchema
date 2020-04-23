@@ -7,9 +7,12 @@
     [EndOdometer]    INT                NULL,
     [StartFuelLevel] INT                NOT NULL,
     [EndFuelLevel]   INT                NULL,
+    [RdfLocalId]     NVARCHAR (36)      NOT NULL,
     CONSTRAINT [PK_VehicleJobCard] PRIMARY KEY CLUSTERED ([Id] ASC),
     CONSTRAINT [FK_VehicleJobCard_Vehicle] FOREIGN KEY ([VehicleId]) REFERENCES [dbo].[Vehicle] ([Id])
 );
+
+
 
 
 

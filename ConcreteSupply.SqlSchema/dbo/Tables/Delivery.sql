@@ -6,6 +6,7 @@
     [DeliveryReference]  NVARCHAR (32)  NOT NULL,
     [Distance]           DECIMAL (4, 2) NOT NULL,
     [PreviousDeliveryId] INT            NULL,
+    [RdfLocalId]         NVARCHAR (36)  NOT NULL,
     CONSTRAINT [PK_Delivery] PRIMARY KEY CLUSTERED ([Id] ASC),
     CONSTRAINT [FK_Delivery_Delivery] FOREIGN KEY ([PreviousDeliveryId]) REFERENCES [dbo].[Delivery] ([Id]),
     CONSTRAINT [FK_Delivery_Driver] FOREIGN KEY ([DriverId]) REFERENCES [dbo].[Driver] ([Id]),
@@ -13,6 +14,8 @@
     CONSTRAINT [FK_Delivery_Vehicle] FOREIGN KEY ([VehicleId]) REFERENCES [dbo].[Vehicle] ([Id]),
     CONSTRAINT [IX_Delivery_1] UNIQUE NONCLUSTERED ([DeliveryReference] ASC)
 );
+
+
 
 
 
