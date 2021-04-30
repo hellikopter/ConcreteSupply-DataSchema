@@ -377,6 +377,12 @@ this:schema a owl:Ontology;
 	rdfs:isDefinedBy this:schema;
 	rdfs:label "Customer name".
 
+:deliveryDate a owl:DatatypeProperty;
+	rdfs:domain :Delivery;
+	rdfs:range xsd:date;
+	rdfs:isDefinedBy this:schema;
+	rdfs:label "Delivery date".
+
 :deliveryReference a owl:DatatypeProperty;
 	rdfs:domain :Delivery;
 	rdfs:range xsd:string;

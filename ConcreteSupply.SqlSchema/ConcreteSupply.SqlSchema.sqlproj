@@ -71,5 +71,15 @@
     <Build Include="dbo\Tables\Price.sql" />
     <Build Include="dbo\Tables\DriverWageSpecialRoute.sql" />
     <Build Include="dbo\Tables\DistanceRange.sql" />
+    <Build Include="dbo\Tables\VehicleJobCard.sql" />
+    <Build Include="dbo\Tables\Vehicle.sql" />
+    <Build Include="dbo\Tables\TankTruck.sql" />
+    <Build Include="dbo\Tables\EngineJobCard.sql" />
+    <Build Include="dbo\Tables\DumpTruck.sql" />
+    <Build Include="dbo\Tables\Delivery.sql" />
+    <Build Include="dbo\Tables\ConcretePumpJobCard.sql" />
+    <Build Include="dbo\Tables\ConcretePumpDelivery.sql" />
+    <Build Include="dbo\Tables\ConcretePump.sql" />
+    <Build Include="dbo\Tables\ConcreteMixer.sql" />
   </ItemGroup>
 </Project>

@@ -1,3 +1,6 @@
+variables:
+- group: GitHub
+
 trigger:
 - master
 
@@ -5,7 +8,7 @@ pool:
   vmImage: 'ubuntu-latest'
 
 steps:
-- script: git checkout master
+- checkout: self
   displayName: 'Checkout'
-- script: git push https://github.com/hellikopter/ConcreteSupply-DataSchema.git
+- script: git push https://$(GitHubAccessToken)@github.com/hellikopter/ConcreteSupply-DataSchema.git
   displayName: 'Push to GitHub'

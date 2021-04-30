@@ -1,0 +1,27 @@
+﻿CREATE TABLE [dbo].[Delivery] (
+    [Id]                      INT                IDENTITY (1, 1) NOT NULL,
+    [DeliveryDate]            DATETIMEOFFSET (7) NOT NULL,
+    [DeliveryReference]       NVARCHAR (64)      NOT NULL,
+    [DeliveryDistance]        DECIMAL (8, 2)     NOT NULL,
+    [DeliveryCapacity]        DECIMAL (8, 2)     NULL,
+    [DeliveryPayload]         DECIMAL (8, 2)     NULL,
+    [DeliveryArrivalTime]     DATETIMEOFFSET (7) NULL,
+    [DeliveryWorkStart]       DATETIMEOFFSET (7) NULL,
+    [DeliveryWorkEnd]         DATETIMEOFFSET (7) NULL,
+    [DeliveryHasProduct]      INT                NOT NULL,
+    [DeliveryHasVehicle]      INT                NOT NULL,
+    [DeliveryHasDriver]       INT                NOT NULL,
+    [DeliveryHasCustomer]     INT                NOT NULL,
+    [DeliveryHasSpecialRoute] INT                NULL,
+    [DeliveryHasOrigin]       INT                NULL,
+    [DeliveryHasDestination]  INT                NULL,
+    CONSTRAINT [PK_Delivery] PRIMARY KEY CLUSTERED ([Id] ASC),
+    CONSTRAINT [FK_Delivery_Customer] FOREIGN KEY ([DeliveryHasCustomer]) REFERENCES [dbo].[Customer] ([Id]),
+    CONSTRAINT [FK_Delivery_Destination] FOREIGN KEY ([DeliveryHasDestination]) REFERENCES [dbo].[PostalAddress] ([Id]),
+    CONSTRAINT [FK_Delivery_Driver] FOREIGN KEY ([DeliveryHasDriver]) REFERENCES [dbo].[Driver] ([Id]),
+    CONSTRAINT [FK_Delivery_Origin] FOREIGN KEY ([DeliveryHasOrigin]) REFERENCES [dbo].[PostalAddress] ([Id]),
+    CONSTRAINT [FK_Delivery_Product] FOREIGN KEY ([DeliveryHasProduct]) REFERENCES [dbo].[Product] ([Id]),
+    CONSTRAINT [FK_Delivery_SpecialRoute] FOREIGN KEY ([DeliveryHasSpecialRoute]) REFERENCES [dbo].[SpecialRoute] ([Id]),
+    CONSTRAINT [FK_Delivery_Vehicle] FOREIGN KEY ([DeliveryHasVehicle]) REFERENCES [dbo].[Vehicle] ([Id])
+);
+
