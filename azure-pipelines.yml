@@ -10,5 +10,5 @@ pool:
 steps:
 - script: git checkout master
   displayName: 'Checkout'
-- script: git push https://$(GitHubAccessToken)@github.com/hellikopter/ConcreteSupply-DataSchema.git
+- script: git push https://github.com/hellikopter/ConcreteSupply-DataSchema.git
   displayName: 'Push to GitHub'

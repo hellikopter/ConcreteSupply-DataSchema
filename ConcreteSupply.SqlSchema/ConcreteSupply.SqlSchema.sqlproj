@@ -61,26 +61,15 @@
     <Folder Include="dbo\Functions\" />
   </ItemGroup>
   <ItemGroup>
-    <Build Include="dbo\Tables\VehicleJobCard.sql" />
-    <Build Include="dbo\Tables\Vehicle.sql" />
     <Build Include="dbo\Tables\PostalAddress.sql" />
-    <Build Include="dbo\Tables\Operator.sql" />
-    <Build Include="dbo\Tables\DumpTruck.sql" />
-    <Build Include="dbo\Tables\DumpTrackDelivery.sql" />
     <Build Include="dbo\Tables\DriverWageRate.sql" />
-    <Build Include="dbo\Tables\DriverWagePayloadRate.sql" />
-    <Build Include="dbo\Tables\DriverWageDeliveryRate.sql" />
-    <Build Include="dbo\Tables\DriverWageDayRate.sql" />
-    <Build Include="dbo\Tables\DriverWageCapacityRate.sql" />
     <Build Include="dbo\Tables\Driver.sql" />
-    <Build Include="dbo\Tables\Delivery.sql" />
-    <Build Include="dbo\Tables\CustomerContactPoint.sql" />
     <Build Include="dbo\Tables\Customer.sql" />
-    <Build Include="dbo\Tables\ContactPoint.sql" />
-    <Build Include="dbo\Tables\ConcretePumpDelivery.sql" />
-    <Build Include="dbo\Tables\ConcretePump.sql" />
-    <Build Include="dbo\Tables\ConcreteMixerDelivery.sql" />
-    <Build Include="dbo\Tables\ConcreteMixer.sql" />
-    <Build Include="dbo\Functions\DumpTrackDeliveryReferentialIntegrityCheck.sql" />
+    <Build Include="dbo\Tables\SpecialRoute.sql" />
+    <Build Include="dbo\Tables\Product.sql" />
+    <Build Include="dbo\Tables\PriceDistanceRange.sql" />
+    <Build Include="dbo\Tables\Price.sql" />
+    <Build Include="dbo\Tables\DriverWageSpecialRoute.sql" />
+    <Build Include="dbo\Tables\DistanceRange.sql" />
   </ItemGroup>
 </Project>

@@ -76,10 +76,10 @@ this:schema a owl:Ontology;
 	rdfs:isDefinedBy this:schema;
 	rdfs:label "Past driver wage rate".
 
-:DriverWageSpecialRouteRate a owl:Class;
+:DriverWageSpecialRoute a owl:Class;
 	rdfs:subClassOf :DriverWageRate;
 	rdfs:isDefinedBy this:schema;
-	rdfs:label "Driver wage special route rate".
+	rdfs:label "Driver wage special route".
 
 :Customer a owl:Class;
 	rdfs:isDefinedBy this:schema;
@@ -257,18 +257,18 @@ this:schema a owl:Ontology;
 	rdfs:isDefinedBy this:schema;
 	rdfs:label "Vehicle has vehicle job card".
 
-:specialRouteHasDriverWageSpecialRouteRate a owl:ObjectProperty;
+:specialRouteHasDriverWageSpecialRoute a owl:ObjectProperty;
 	rdfs:domain :SpecialRoute;
-	rdfs:range :DriverWageSpecialRouteRate;
+	rdfs:range :DriverWageSpecialRoute;
 	rdfs:isDefinedBy this:schema;
-	rdfs:label "Special route has driver wage special route rate".
+	rdfs:label "Special route has driver wage special route".
 
-:driverWageSpecialRouteRateHasSpecialRoute a owl:ObjectProperty;
-	owl:inverseOf :specialRouteHasDriverWageSpecialRouteRate;
-	rdfs:domain :DriverWageSpecialRouteRate;
+:driverWageSpecialRouteHasSpecialRoute a owl:ObjectProperty;
+	owl:inverseOf :specialRouteHasDriverWageSpecialRoute;
+	rdfs:domain :DriverWageSpecialRoute;
 	rdfs:range :SpecialRoute;
 	rdfs:isDefinedBy this:schema;
-	rdfs:label "Driver wage special route rate has special route".
+	rdfs:label "Driver wage special route has special route".
 
 :specialRouteHasPriceSpecialRoute a owl:ObjectProperty;
 	rdfs:domain :SpecialRoute;
@@ -371,11 +371,11 @@ this:schema a owl:Ontology;
 	rdfs:label "Tank truck payload";
 	rdfs:comment "[t]".
 
-:customerLabel a owl:DatatypeProperty;
+:customerName a owl:DatatypeProperty;
 	rdfs:domain :Customer;
 	rdfs:range xsd:string;
 	rdfs:isDefinedBy this:schema;
-	rdfs:label "Customer label".
+	rdfs:label "Customer name".
 
 :deliveryReference a owl:DatatypeProperty;
 	rdfs:domain :Delivery;
@@ -528,7 +528,7 @@ this:schema a owl:Ontology;
 	rdfs:comment "Applicable to :DumpTruck and :TankTruck.".
 
 :driverWageSpecialRouteRate a owl:DatatypeProperty;
-	rdfs:domain :DriverWageSpecialRouteRate;
+	rdfs:domain :DriverWageSpecialRoute;
 	rdfs:range xsd:decimal;
 	rdfs:isDefinedBy this:schema;
 	rdfs:label "Driver wage special route rate".
