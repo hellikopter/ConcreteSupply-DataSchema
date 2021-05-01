@@ -1,7 +1,7 @@
 ﻿CREATE TABLE [dbo].[VehicleJobCard] (
     [Id]                           INT                IDENTITY (1, 1) NOT NULL,
-    [VehicleJobCardStart]          DATETIMEOFFSET (7) NOT NULL,
-    [VehicleJobCardEnd]            DATETIMEOFFSET (7) NOT NULL,
+    [VehicleJobCardStart]          DATETIMEOFFSET (0) NOT NULL,
+    [VehicleJobCardEnd]            DATETIMEOFFSET (0) NOT NULL,
     [VehicleJobCardOdometerStart]  INT                NOT NULL,
     [VehicleJobCardOdometerEnd]    INT                NOT NULL,
     [VehicleJobCardFuelLevelStart] INT                NOT NULL,

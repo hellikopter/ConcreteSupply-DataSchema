@@ -81,5 +81,6 @@
     <Build Include="dbo\Tables\ConcretePumpDelivery.sql" />
     <Build Include="dbo\Tables\ConcretePump.sql" />
     <Build Include="dbo\Tables\ConcreteMixer.sql" />
+    <Build Include="dbo\Tables\PriceSpecialRoute.sql" />
   </ItemGroup>
 </Project>

@@ -55,6 +55,16 @@ this:schema a owl:Ontology;
 	rdfs:isDefinedBy this:schema;
 	rdfs:label "Concrete pump delivery".
 
+:SpecialRouteDelivery a owl:Class;
+	rdfs:subClassOf :Delivery;
+	rdfs:isDefinedBy this:schema;
+	rdfs:label "Special route delivery".
+
+:AddressedDelivery a owl:Class;
+	rdfs:subClassOf :Delivery;
+	rdfs:isDefinedBy this:schema;
+	rdfs:label "Addressed delivery".
+
 :Driver a owl:Class;
 	rdfs:isDefinedBy this:schema;
 	rdfs:label "Driver".
@@ -140,44 +150,44 @@ this:schema a owl:Ontology;
 	rdfs:isDefinedBy this:schema;
 	rdfs:label "Destination has special route".
 
-:deliveryHasOrigin a owl:ObjectProperty;
-	rdfs:domain :Delivery;
+:addressedDeliveryHasOrigin a owl:ObjectProperty;
+	rdfs:domain :AddressedDelivery;
 	rdfs:range :PostalAddress;
 	rdfs:isDefinedBy this:schema;
-	rdfs:label "Delivery has origin".
+	rdfs:label "Addressed delivery has origin".
 
-:originHasDelivery a owl:ObjectProperty;
-	owl:inverseOf :deliveryHasOrigin;
+:originHasAddressedDelivery a owl:ObjectProperty;
+	owl:inverseOf :addressedDeliveryHasOrigin;
 	rdfs:domain :PostalAddress;
-	rdfs:range :Delivery;
+	rdfs:range :AddressedDelivery;
 	rdfs:isDefinedBy this:schema;
-	rdfs:label "Origin has delivery".
+	rdfs:label "Origin has addressed delivery".
 
-:deliveryHasDestination a owl:ObjectProperty;
-	rdfs:domain :Delivery;
+:addressedDeliveryHasDestination a owl:ObjectProperty;
+	rdfs:domain :AddressedDelivery;
 	rdfs:range :PostalAddress;
 	rdfs:isDefinedBy this:schema;
-	rdfs:label "Delivery has destination".
+	rdfs:label "Addressed delivery has destination".
 
-:destinationHasDelivery a owl:ObjectProperty;
-	owl:inverseOf :deliveryHasDestination;
+:destinationHasAddressedDelivery a owl:ObjectProperty;
+	owl:inverseOf :addressedDeliveryHasDestination;
 	rdfs:domain :PostalAddress;
-	rdfs:range :Delivery;
+	rdfs:range :AddressedDelivery;
 	rdfs:isDefinedBy this:schema;
-	rdfs:label "Destination has delivery".
+	rdfs:label "Destination has addressed delivery".
 
-:specialRouteHasDelivery a owl:ObjectProperty;
+:specialRouteHasSpecialRouteDelivery a owl:ObjectProperty;
 	rdfs:domain :SpecialRoute;
-	rdfs:range :Delivery;
+	rdfs:range :SpecialRouteDelivery;
 	rdfs:isDefinedBy this:schema;
-	rdfs:label "Special route has delivery".
+	rdfs:label "Special route has special route delivery".
 
-:deliveryHasSpecialRoute a owl:ObjectProperty;
-	owl:inverseOf :specialRouteHasDelivery;
-	rdfs:domain :Delivery;
+:specialRouteDeliveryHasSpecialRoute a owl:ObjectProperty;
+	owl:inverseOf :specialRouteHasSpecialRouteDelivery;
+	rdfs:domain :SpecialRouteDelivery;
 	rdfs:range :SpecialRoute;
 	rdfs:isDefinedBy this:schema;
-	rdfs:label "Delivery has special route".
+	rdfs:label "Special route delivery has special route".
 
 :deliveryHasCustomer a owl:ObjectProperty;
 	rdfs:domain :Delivery;
