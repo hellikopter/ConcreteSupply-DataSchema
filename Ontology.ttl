@@ -114,10 +114,6 @@ this:schema a owl:Ontology;
 	rdfs:isDefinedBy this:schema;
 	rdfs:label "Past price".
 
-:DistanceRange a owl:Class;
-	rdfs:isDefinedBy this:schema;
-	rdfs:label "Distance range".
-
 :Product a owl:Class;
 	rdfs:isDefinedBy this:schema;
 	rdfs:label "Product".
@@ -292,19 +288,6 @@ this:schema a owl:Ontology;
 	rdfs:range :SpecialRoute;
 	rdfs:isDefinedBy this:schema;
 	rdfs:label "Price special route has special route".
-
-:distanceRangeHasPriceDistanceRange a owl:ObjectProperty;
-	rdfs:domain :DistanceRange;
-	rdfs:range :PriceDistanceRange;
-	rdfs:isDefinedBy this:schema;
-	rdfs:label "Distance range has price distance range".
-
-:priceDistanceRangeHasDistanceRange a owl:ObjectProperty;
-	owl:inverseOf :distanceRangeHasPriceDistanceRange;
-	rdfs:domain :PriceDistanceRange;
-	rdfs:range :DistanceRange;
-	rdfs:isDefinedBy this:schema;
-	rdfs:label "Price distance range has distance range".
 
 :customerHasPrice a owl:ObjectProperty;
 	rdfs:domain :Customer;
@@ -646,14 +629,14 @@ this:schema a owl:Ontology;
 	rdfs:label "Concrete pump hours end".
 
 :minimumInclusiveDistance a owl:DatatypeProperty;
-	rdfs:domain :DistanceRange;
+	rdfs:domain :PriceDistanceRange;
 	rdfs:range xsd:decimal;
 	rdfs:isDefinedBy this:schema;
 	rdfs:label "Minimum inclusive distance";
 	rdfs:comment "[km]".
 
 :maximumExclusiveDistance a owl:DatatypeProperty;
-	rdfs:domain :DistanceRange;
+	rdfs:domain :PriceDistanceRange;
 	rdfs:range xsd:decimal;
 	rdfs:isDefinedBy this:schema;
 	rdfs:label "Maximum exclusive distance";
