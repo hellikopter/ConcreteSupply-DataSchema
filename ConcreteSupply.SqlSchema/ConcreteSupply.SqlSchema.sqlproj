@@ -70,7 +70,6 @@
     <Build Include="dbo\Tables\PriceDistanceRange.sql" />
     <Build Include="dbo\Tables\Price.sql" />
     <Build Include="dbo\Tables\DriverWageSpecialRoute.sql" />
-    <Build Include="dbo\Tables\DistanceRange.sql" />
     <Build Include="dbo\Tables\VehicleJobCard.sql" />
     <Build Include="dbo\Tables\Vehicle.sql" />
     <Build Include="dbo\Tables\TankTruck.sql" />

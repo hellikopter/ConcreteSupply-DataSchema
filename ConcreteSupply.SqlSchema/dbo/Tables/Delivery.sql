@@ -9,13 +9,13 @@
     [DeliveryWorkStart]       DATETIMEOFFSET (0) NULL,
     [DeliveryWorkEnd]         DATETIMEOFFSET (0) NULL,
     [DeliveryHasProduct]      INT                NOT NULL,
-    [DeliveryHasVehicle]      INT                NOT NULL,
+    [DeliveryHasVehicleJobCard]      INT                NOT NULL,
     [DeliveryHasDriver]       INT                NOT NULL,
     [DeliveryHasCustomer]     INT                NOT NULL,
     CONSTRAINT [PK_Delivery] PRIMARY KEY CLUSTERED ([Id] ASC),
     CONSTRAINT [FK_Delivery_Customer] FOREIGN KEY ([DeliveryHasCustomer]) REFERENCES [dbo].[Customer] ([Id]),
     CONSTRAINT [FK_Delivery_Driver] FOREIGN KEY ([DeliveryHasDriver]) REFERENCES [dbo].[Driver] ([Id]),
     CONSTRAINT [FK_Delivery_Product] FOREIGN KEY ([DeliveryHasProduct]) REFERENCES [dbo].[Product] ([Id]),
-    CONSTRAINT [FK_Delivery_Vehicle] FOREIGN KEY ([DeliveryHasVehicle]) REFERENCES [dbo].[Vehicle] ([Id])
+    CONSTRAINT [FK_Delivery_Vehicle] FOREIGN KEY ([DeliveryHasVehicleJobCard]) REFERENCES [dbo].[VehicleJobCard] ([Id])
 );
 

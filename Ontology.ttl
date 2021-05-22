@@ -198,18 +198,18 @@ this:schema a owl:Ontology;
 	rdfs:isDefinedBy this:schema;
 	rdfs:label "Customer has delivery".
 
-:deliveryHasVehicle a owl:ObjectProperty;
+:deliveryHasVehicleJobCard a owl:ObjectProperty;
 	rdfs:domain :Delivery;
-	rdfs:range :Vehicle;
+	rdfs:range :VehicleJobCard;
 	rdfs:isDefinedBy this:schema;
-	rdfs:label "Delivery has vehicle".
+	rdfs:label "Delivery has vehicle job card".
 
-:vehicleHasDelivery a owl:ObjectProperty;
-	owl:inverseOf :deliveryHasVehicle;
-	rdfs:domain :Delivery;
-	rdfs:range :Vehicle;
+:vehicleJobCardHasDelivery a owl:ObjectProperty;
+	owl:inverseOf :deliveryHasVehicleJobCard;
+	rdfs:domain :VehicleJobCard;
+	rdfs:range :Delivery;
 	rdfs:isDefinedBy this:schema;
-	rdfs:label "Vehicle has delivery".
+	rdfs:label "Vehicle job card has delivery".
 
 :deliveryHasDriver a owl:ObjectProperty;
 	rdfs:domain :Delivery;
