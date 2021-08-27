@@ -594,37 +594,37 @@ this:schema a owl:Ontology;
 
 :vehicleJobCardFuelLevelStart a owl:DatatypeProperty;
 	rdfs:domain :VehicleJobCard;
-	rdfs:range xsd:integer;
+	rdfs:range xsd:decimal;
 	rdfs:isDefinedBy this:schema;
 	rdfs:label "Vehicle job card fuel level start".
 
 :vehicleJobCardFuelLevelEnd a owl:DatatypeProperty;
 	rdfs:domain :VehicleJobCard;
-	rdfs:range xsd:integer;
+	rdfs:range xsd:decimal;
 	rdfs:isDefinedBy this:schema;
 	rdfs:label "Vehicle job card fuel level end".
 
 :engineHoursStart a owl:DatatypeProperty;
 	rdfs:domain :EngineJobCard;
-	rdfs:range xsd:integer;
+	rdfs:range xsd:decimal;
 	rdfs:isDefinedBy this:schema;
 	rdfs:label "Engine hours start".
 
 :engineHoursEnd a owl:DatatypeProperty;
 	rdfs:domain :EngineJobCard;
-	rdfs:range xsd:integer;
+	rdfs:range xsd:decimal;
 	rdfs:isDefinedBy this:schema;
 	rdfs:label "Engine hours end".
 
 :concretePumpHoursStart a owl:DatatypeProperty;
 	rdfs:domain :ConcretePumpJobCard;
-	rdfs:range xsd:integer;
+	rdfs:range xsd:decimal;
 	rdfs:isDefinedBy this:schema;
 	rdfs:label "Concrete pump hours start".
 
 :concretePumpHoursEnd a owl:DatatypeProperty;
 	rdfs:domain :ConcretePumpJobCard;
-	rdfs:range xsd:integer;
+	rdfs:range xsd:decimal;
 	rdfs:isDefinedBy this:schema;
 	rdfs:label "Concrete pump hours end".
 
