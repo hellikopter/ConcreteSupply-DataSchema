@@ -31,7 +31,22 @@ this:schema a owl:Ontology;
 	rdfs:subClassOf :Vehicle;
 	rdfs:isDefinedBy this:schema;
 	rdfs:label "Tank truck".
-	
+
+:TractorUnit a owl:Class;
+	rdfs:subClassOf :Vehicle;
+	rdfs:isDefinedBy this:schema;
+	rdfs:label "Tractor unit".
+
+:DumpTrailer a owl:Class;
+	rdfs:subClassOf :DumpTruck;
+	rdfs:isDefinedBy this:schema;
+	rdfs:label "Dump trailer".
+
+:ConcreteMixerTrailer a owl:Class;
+	rdfs:subClassOf :ConcreteMixer;
+	rdfs:isDefinedBy this:schema;
+	rdfs:label "Concrete mixer trailer".
+
 :VehicleJobCard a owl:Class;
 	rdfs:isDefinedBy this:schema;
 	rdfs:label "Vehicle job card".
@@ -256,7 +271,7 @@ this:schema a owl:Ontology;
 	rdfs:isDefinedBy this:schema;
 	rdfs:label "Vehicle job card has vehicle".
 
-:vehicleHasVehicleJobCard a owl:ObjectProperty, owl:InverseFunctionalProperty;
+:vehicleHasVehicleJobCard a owl:ObjectProperty;
 	owl:inverseOf :vehicleJobCardHasVehicle;
 	rdfs:domain :Vehicle;
 	rdfs:range :VehicleJobCard;
