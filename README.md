@@ -1,3 +1,3 @@
-Schema visualization at [WebVOWL](http://www.visualdataweb.de/webvowl/#iri=https://raw.githubusercontent.com/hellikopter/ConcreteSupply-DataSchema/master/Ontology.ttl)
+Schema visualization at [WebVOWL](https://service.tib.eu/webvowl/#iri=https://raw.githubusercontent.com/hellikopter/ConcreteSupply-DataSchema/master/Ontology.ttl)
 
 Ontology pattern inspired by [UK Parliament ontology](https://github.com/ukparliament/Ontology/blob/master/Ontology.ttl) as described by [@christopheralcock](https://github.com/christopheralcock) [here](https://gist.github.com/christopheralcock/ec235d8e361c25797b77fb4281b04f4f).
