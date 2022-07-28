@@ -12,38 +12,48 @@ this:schema a owl:Ontology;
 	rdfs:isDefinedBy this:schema;
 	rdfs:label "Vehicle".
 
-:ConcreteMixer a owl:Class;
+:Truck a owl:Class;
 	rdfs:subClassOf :Vehicle;
+	rdfs:isDefinedBy this:schema;
+	rdfs:label "Truck".
+
+:Trailer a owl:Class;
+	rdfs:subClassOf :Vehicle;
+	rdfs:isDefinedBy this:schema;
+	rdfs:label "Trailer".
+
+:ConcreteMixer a owl:Class;
+	rdfs:subClassOf :Truck;
 	rdfs:isDefinedBy this:schema;
 	rdfs:label "Concrete mixer".
 
 :ConcretePump a owl:Class;
-	rdfs:subClassOf :Vehicle;
+	rdfs:subClassOf :Truck;
 	rdfs:isDefinedBy this:schema;
 	rdfs:label "Concrete pump".
 	
 :DumpTruck a owl:Class;
-	rdfs:subClassOf :Vehicle;
+	rdfs:subClassOf :Truck;
 	rdfs:isDefinedBy this:schema;
 	rdfs:label "Dump truck".
 
 :TankTruck a owl:Class;
-	rdfs:subClassOf :Vehicle;
+	rdfs:subClassOf :Truck;
 	rdfs:isDefinedBy this:schema;
 	rdfs:label "Tank truck".
 
 :TractorUnit a owl:Class;
-	rdfs:subClassOf :Vehicle;
+	rdfs:subClassOf :Truck;
 	rdfs:isDefinedBy this:schema;
 	rdfs:label "Tractor unit".
 
 :DumpTrailer a owl:Class;
-	rdfs:subClassOf :DumpTruck;
+	rdfs:subClassOf :Trailer;
 	rdfs:isDefinedBy this:schema;
 	rdfs:label "Dump trailer".
 
 :ConcreteMixerTrailer a owl:Class;
-	rdfs:subClassOf :ConcreteMixer;
+	rdfs:subClassOf :Trailer;
 	rdfs:isDefinedBy this:schema;
 	rdfs:label "Concrete mixer trailer".
 
@@ -339,7 +349,7 @@ this:schema a owl:Ontology;
 	rdfs:label "Vehicle number plate".
 
 :fuelLevelConversionRatio a owl:DatatypeProperty;
-	rdfs:domain :Vehicle;
+	rdfs:domain :Truck;
 	rdfs:range xsd:decimal;
 	rdfs:isDefinedBy this:schema;
 	rdfs:label "Fuel level conversion ratio".
@@ -355,7 +365,14 @@ this:schema a owl:Ontology;
 	rdfs:domain :DumpTruck;
 	rdfs:range xsd:decimal;
 	rdfs:isDefinedBy this:schema;
-	rdfs:label "Driver truck payload";
+	rdfs:label "Dump truck payload";
+	rdfs:comment "[t]".
+
+:dumpTrailerPayload a owl:DatatypeProperty;
+	rdfs:domain :DumpTrailer;
+	rdfs:range xsd:decimal;
+	rdfs:isDefinedBy this:schema;
+	rdfs:label "Dump trailer payload";
 	rdfs:comment "[t]".
 
 :concreteMixerCapacity a owl:DatatypeProperty;
@@ -363,6 +380,13 @@ this:schema a owl:Ontology;
 	rdfs:range xsd:decimal;
 	rdfs:isDefinedBy this:schema;
 	rdfs:label "Concrete mixer capacity";
+	rdfs:comment "[m3]".
+
+:concreteMixerTrailerCapacity a owl:DatatypeProperty;
+	rdfs:domain :ConcreteMixerTrailer;
+	rdfs:range xsd:decimal;
+	rdfs:isDefinedBy this:schema;
+	rdfs:label "Concrete mixer trailer capacity";
 	rdfs:comment "[m3]".
 
 :tankTruckCapacity a owl:DatatypeProperty;
