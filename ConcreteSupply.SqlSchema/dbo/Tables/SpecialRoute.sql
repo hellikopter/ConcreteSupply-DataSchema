@@ -3,6 +3,7 @@
     [SpecialRouteHasOrigin]      INT NOT NULL,
     [SpecialRouteHasDestination] INT NOT NULL,
     CONSTRAINT [PK_SpecialRoute] PRIMARY KEY CLUSTERED ([Id] ASC),
+    CONSTRAINT [IX_SpecialRoute] UNIQUE NONCLUSTERED ([SpecialRouteHasDestination] ASC, [SpecialRouteHasOrigin] ASC),
     CONSTRAINT [FK_SpecialRoute_PostalAddress_Destination] FOREIGN KEY ([SpecialRouteHasDestination]) REFERENCES [dbo].[PostalAddress] ([Id]),
     CONSTRAINT [FK_SpecialRoute_PostalAddress_Origin] FOREIGN KEY ([SpecialRouteHasOrigin]) REFERENCES [dbo].[PostalAddress] ([Id])
 );
