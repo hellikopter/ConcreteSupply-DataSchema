@@ -15,7 +15,7 @@ jobs:
             //  state: 'open'
             //});
             
-            const data = await github.request('GET /repos/inrupt/test-dependabot-security/dependabot/alerts', {
+            const data = await github.request('GET /repos/hellikopter/ConcreteSupply-DataSchema/dependabot/alerts', {
               headers: {
                 "Authorization" : "${{ secrets.TOKEN }}"
               }
